@@ -12,7 +12,7 @@ class TodoController extends Controller
      */
     public function index()
     {
-        //
+        return view("todo.app");
     }
 
     /**
@@ -28,7 +28,7 @@ class TodoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
     }
 
     /**
