@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Todo;
 
 use App\Http\Controllers\Controller;
+use App\Models\todo;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 
@@ -36,6 +37,13 @@ class TodoController extends Controller
             'task.min' => 'Minimal isian task 3 karakter',
             'task.max' => 'Maximal isian task 25 karakter',
         ]);
+
+        $data = [
+            'task'=>$request->input('task')
+        ];
+
+        todo::create($data);
+        return redirect('/todo')->with('success', 'berhasil simpan data');
     }
 
     /**
