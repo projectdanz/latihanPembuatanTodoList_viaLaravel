@@ -30,10 +30,11 @@ class TodoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'task' => 'required|min:3'
+            'task' => 'required|min:3|max:25'
         ], [
             'task.required' => 'Isian task ini wajib diisikan',
             'task.min' => 'Minimal isian task 3 karakter',
+            'task.max' => 'Maximal isian task 25 karakter',
         ]);
     }
 
