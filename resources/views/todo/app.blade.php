@@ -40,6 +40,15 @@
             <div class="col-md-8">
              <div class="card mb-3">
                 <div class="card-body">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <!-- 02. Form input data -->
                     <form id="todo-form" action="{{url('/todo')}}" method="post">
                         @csrf

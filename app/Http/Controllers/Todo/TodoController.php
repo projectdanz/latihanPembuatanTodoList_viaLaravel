@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Todo;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 
 class TodoController extends Controller
@@ -28,7 +29,9 @@ class TodoController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        $request->validate([
+            'task' => 'required|min:3'
+        ]);
     }
 
     /**
