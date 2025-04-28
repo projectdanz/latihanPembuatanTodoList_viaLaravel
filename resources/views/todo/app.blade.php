@@ -133,7 +133,7 @@
                             @endforeach
 
                         </ul>
-
+                        {{ $data->links() }}
 
                     </div>
                 </div>
