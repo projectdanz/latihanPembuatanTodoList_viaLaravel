@@ -83,7 +83,7 @@ class TodoController extends Controller
         'is_done' => $request->input('is_done')
     ];
 
-    Todo::where('id', $id)->update($data);
+    todo::where('id', $id)->update($data);
 
     return redirect()->route('todo')->with('success', 'Berhasil menyimpan perbaikan data');
 }
@@ -94,6 +94,8 @@ class TodoController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        todo::where('id', $id)->delete();
+        return redirect()->route('todo')->with('success', 'Berhasil menghapus data!!');
+
     }
 }
